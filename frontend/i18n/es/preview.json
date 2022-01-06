@@ -1,0 +1,68 @@
+{
+  "emptyDescription": "El desarrollador aún no ha proporcionado una descripción específica de napari-hub.",
+  "hubWikiLink": "https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md",
+  "mismatchWikiLink": "https://github.com/chanzuckerberg/napari-hub/blob/main/docs/setting-up-preview.md#seeing-a-warning-message",
+
+  "sections": {
+    "describeWhat": {
+      "title": "Describe lo que hace el complemento",
+      "description": "Un resumen conciso y una descripción clara ayudan a los usuarios a comprender qué hace su complemento y si es lo que están buscando."
+    },
+
+    "tellUsers": {
+      "title": "Indique a los usuarios dónde pueden obtener ayuda.",
+      "description": "Asegúrese de que sus usuarios sepan dónde ir para aprender a usar su complemento, obtener ayuda, informar errores o solicitar nuevas funciones."
+    },
+
+    "giveInsight": {
+      "title": "Brinde información sobre su código",
+      "description": "Permita que los usuarios vean su código fuente y sepan qué tipo de estabilidad deben esperar."
+    },
+
+    "specifySystem": {
+      "title": "Especifique los requisitos del sistema",
+      "description": "Aclare los requisitos técnicos de su complemento para que los usuarios sepan si pueden instalarlo."
+    }
+  },
+
+  "appBar": {
+    "editInGitHub": "Editar en GitHub",
+    "learnHow": "Aprenda a actualizar campos en el <externalLink href='$t(hubWikiLink)'>napari hub GitHub Wiki</externalLink>.",
+    "notLive": "No está en vivo en el napari hub.",
+    "viewPR": "Ver solicitud de extracción",
+
+    "previewMessageBase": "Esta vista previa de <bold>{{pluginName}}</bold> se generó a partir de <externalLink href='{{pullRequestLink}}'>{{previewRepoName}}</externalLink>",
+    "previewMessage": "$t(appBar.previewMessageBase).",
+    "previewMessage_mismatch": "$t(appBar.previewMessageBase), pero sus metadatos apuntan a <externalLink href='{{codeRepoLink}}'>{{codeRepoName}}</externalLink> como código fuente. <externalLink href='$t(mismatchWikiLink)'>Más información</externalLink>.",
+
+    "missingFields_zero": "¡Todos los campos completos!",
+    "missingFields_one": "1 campo necesita atención",
+    "missingFields_other": "{{count}} campos necesitan atención"
+  },
+
+  "emptyTooltip": {
+    "learnHow": "Aprenda a agregar contenido para este campo en el <hubLink>napari hub GitHub Wiki</hubLink>.",
+    "incompleteField": "Si este campo permanece incompleto, seguirá mostrándose en la página de su complemento, pero sin la superposición naranja."
+  },
+
+  "tooltips": {
+    "name": "Sólo puede haber uno. Este también es el nombre de su paquete de Python. Aprenda a configurar esto.",
+    "description": "Concéntrese en lo que es relevante para los usuarios que quieran probar su complemento. Aprenda a configurar esto.",
+    "summary": "Destaque con un resumen conciso de lo que hace su complemento. Aprenda a configurar esto.",
+
+    "license": "Ayude a los usuarios a saber cómo pueden modificar o redistribuir su código. Aprenda a configurar esto.",
+    "operatingSystems": "Dígales a sus usuarios qué sistemas operativos admite. Aprenda a configurar esto.",
+    "pythonVersion": "Informe a los usuarios qué versiones de Python admite. Aprenda a configurar esto.",
+    "requirements": "Si su complemento tiene dependencias en otras bibliotecas de Python, asegúrese de agregarlas. Aprenda a configurar esto.",
+    "version": "El control de versiones semántico brinda a los usuarios una visión rápida de los cambios importantes. Aprenda a configurar esto.",
+
+    "authors": "Asegúrese de que la gente sepa quién está detrás de la magia. Aprenda a configurar esto.",
+    "documentationSite": "Muestre a sus usuarios dónde ir para conocer todas las cosas increíbles que puede hacer su complemento. Aprenda a configurar esto.",
+    "reportIssues": "Informe a los usuarios a dónde acudir para solicitar funciones o informar errores. Aprenda a configurar esto.",
+    "sourceCode": "Link to the source code to help build trust in your hard work. Learn how to set this.",
+    "supportSite": "Asegúrese de que sus usuarios puedan encontrar a alguien que los ayude cuando necesiten una mano. Aprenda a configurar esto.",
+
+    "twitter": "Enlace al Twitter del autor. Aprenda a configurar esto.",
+    "projectSite": "Enlace al sitio del proyecto del complemento. Aprenda a configurar esto."
+  }
+}

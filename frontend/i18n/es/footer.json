@@ -1,0 +1,20 @@
+{
+  "githubRepo": "Github repo",
+
+  "alt": {
+    "goToCzi": "Vaya al sitio web principal de la Iniciativa Chan Zuckerberg.",
+    "goToNapari": "Vaya al sitio web principal de napari."
+  },
+
+  "ariaLabels": {
+    "emailAddress": "Dirección de correo electrónico"
+  },
+
+  "signUp": {
+    "email": "email",
+    "invalidEmail": "Por favor ingrese su dirección de correo electrónico válida",
+    "missingEmail": "Por favor introduzca una dirección de correo eléctronico",
+    "subscribe": "Suscribir",
+    "title": "Regístrese para recibir actualizaciones"
+  }
+}

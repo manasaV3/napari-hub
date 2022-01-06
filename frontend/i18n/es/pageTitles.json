@@ -1,0 +1,10 @@
+{
+  "base": "napari hub",
+  "home": "$t(base) | búsqueda",
+  "preview": "avance",
+  "plugin": {
+    "base": "$t(base) | complementos",
+    "loading": "cargando",
+    "by": "por"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "githubActivity": "Actividad de GitHub",
+  "viewProjectData": "Ver datos del proyecto",
+
+  "alt": {
+    "installMenu": "Menú de instalación del complemento Napari",
+    "pluginList": "lista de complementos de napari"
+  },
+
+  "errors": {
+    "fetch": "No se puede cargar el complemento",
+    "emptyPlugin": "Datos de complemento vacíos"
+  },
+
+  "github": {
+    "stars": "Estrellas",
+    "forks": "Tenedores",
+    "issuesAndPrs": "Problemas + PRs",
+    "fetchError": "Tenemos problemas para cargar las estadísticas de GitHub.: {{status}}"
+  },
+
+  "installModal": {
+    "title": "Instalación de un complemento con napari",
+    "visitNapari": "Para comenzar con napari, visite <hubLink href='https://napari.org'>napari.org</hubLink>",
+    "steps": {
+      "step1": "En el menú “Complementos” dentro de la aplicación napari, seleccione “Instalar / Desinstalar paquetes ...”.",
+      "step2": "Copie <copyButton /> y péguelo donde dice “Instalar por nombre / url ...”.",
+      "step3": "Haga clic en “Instalar”."
+    }
+  },
+
+  "citations": {
+    "body": "Si usa este complemento en su trabajo, cítelo utilizando la siguiente cita. ¡No olvide <hubLink href = 'https: //napari.org/#citing-napari'> citar napari </hubLink> también!",
+    "copied": "¡Copiado!",
+    "copy": "Copiar",
+    "download": "Descargar",
+    "title": "Cómo citar este complemento"
+  }
+}

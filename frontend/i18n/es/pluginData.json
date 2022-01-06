@@ -1,0 +1,142 @@
+{
+  "labels": {
+    "authors": "Autores",
+    "citations": "Información de la cita",
+    "description": "Descripción",
+    "documentation": "Documentación",
+    "firstReleased": "Lanzado por primera vez",
+    "projectSite": "Sitio del proyecto",
+    "reportIssues": "Informar problemas",
+    "requirements": "Requisitos",
+    "sourceCode": "Código fuente",
+
+    "Image modality": "Modalidad de imagen",
+    "Supported data": "Datos admitidos",
+    "Workflow step": "Paso del flujo de trabajo",
+
+    "license": {
+      "label": "Licencia",
+      "lower": "licencia"
+    },
+
+    "operatingSystem": {
+      "label": "Sistema operativo",
+      "lower": "sistema operativo"
+    },
+
+    "pluginName": {
+      "label": "Nombre del complemento",
+      "preview": "Nombre"
+    },
+
+    "pythonVersion": {
+      "label": "Versiones de Python compatibles",
+      "short": "Versiones de Python",
+      "lower": "versión de Python"
+    },
+
+    "releaseDate": {
+      "label": "Fecha de lanzamiento",
+      "lower": "fecha de lanzamiento"
+    },
+
+    "summary": {
+      "label": "Breve descripción",
+      "preview": "Resumen"
+    },
+
+    "supportSite": {
+      "label": "Sitio de soporte",
+      "preview": "Apoyo"
+    },
+
+    "twitter": {
+      "label": "Twitter"
+    },
+
+    "version": {
+      "label": "Versión",
+      "lower": "versión"
+    }
+  },
+
+  "category": {
+    "clickToAdd": "Haga clic en el nombre de la categoría para agregarla como filtro.",
+
+    "labels": {
+      "Bright-field microscopy": "Microscopía de campo claro",
+      "Clustering": "Agrupación",
+      "Computed tomography ": "Tomografía computarizada",
+      "Confocal microscopy": "Microscopia confocal",
+      "DIC microscopy": "Microscopía DIC",
+      "Electron microscopy": "Microscopio de electrones",
+      "Filament tracing": "Rastreo de filamentos",
+      "Fluorescence correlation spectroscopy": "Espectroscopia de correlación de fluorescencia",
+      "Fluorescence microscopy": "Microscopio fluorescente",
+      "Frequency domain analysis": "Análisis de dominio de frecuencia",
+      "Image annotation": "Anotación de imagen",
+      "Image classification": "Clasificación de imágenes",
+      "Image correction": "Corrección de imagen",
+      "Image enhancement": "Mejora de la imagen",
+      "Image feature detection": "Detección de características de imagen",
+      "Image fusion": "Fusión de imágenes",
+      "Image reconstruction": "Reconstrucción de imágenes",
+      "Image registration": "Registro de imagen",
+      "Image Segmentation": "Segmentación de imagen",
+      "Magnetic resonance imaging": "Imagen de resonancia magnética",
+      "Medical imaging": "Imagenes medicas",
+      "Morphological operations": "Operaciones morfológicas",
+      "Multi-photon microscopy": "Microscopía multifotónica",
+      "Multimodal imaging": "Imagen multimodal",
+      "Object classification": "Clasificación de objetos",
+      "Object feature extraction": "Extracción de características de objeto",
+      "Object tracking": "Seguimiento de objetos",
+      "Object-based colocalisation": "Colocalización basada en objetos",
+      "Optical flow analysis": "Análisis de flujo óptico",
+      "Phase-Contrast microscopy": "Contraste microscopico",
+      "Pixel classification": "Clasificación de píxeles",
+      "Pixel-based colocalisation": "Colocalización basada en píxeles",
+      "Synthetic image generation": "Generación de imágenes sintéticas",
+      "Ultrasound imaging": "Imágenes por ultrasonido",
+      "Visualization": "Visualización"
+    },
+
+    "tooltips": {
+      "Bright-field microscopy": "Técnica de microscopía basada en la observación directa de muestras con luz transmitida a través de ellas.",
+      "Clustering": "La agrupación es un proceso de agrupar un conjunto de objetos de tal manera que los objetos del mismo grupo son, en cierto sentido, más similares entre sí que a los de otros grupos. A veces se denomina clasificación no supervisada.",
+      "Computed tomography ": "La TC es un procedimiento de imágenes computarizado en el que un haz estrecho de rayos X gira rápidamente alrededor del cuerpo, produciendo señales que son procesadas por la computadora para generar imágenes transversales.",
+      "Confocal microscopy": "Microscopía restringida a objetos que se encuentran en el mismo plano focal.",
+      "DIC microscopy": "Técnica de microscopía de mejora de contraste basada en interferencias entre rayos que viajan diferentes distancias a través de una muestra.",
+      "Electron microscopy": "Microscopía que utiliza un haz de electrones acelerados para obtener una imagen de una muestra, p. Ej. TEM, SEM.",
+      "Filament tracing": "El rastreo de filamentos toma una imagen de estructuras filamentosas (puede ser una estructura en forma de árbol, una red de filamentos o filamentos 'en forma de barra') como datos de entrada y salida que representan el filamento, comúnmente una representación esquelética de los filamentos y sus diámetros o superficies.",
+      "Fluorescence correlation spectroscopy": "FCS es un análisis estadístico que mide la fluctuación de la intensidad de la fluorescencia a través del tiempo o la correlación espacial, que proporciona parámetros físicos de la muestra, como el coeficiente de difusión o la concentración.",
+      "Fluorescence microscopy": "Técnicas en microscopía basadas en el uso de moléculas fluorescentes que emiten luz de mayor longitud de onda al ser excitadas.",
+      "Frequency domain analysis": "El análisis en el dominio de la frecuencia cuantifica las diversas cantidades (por ejemplo, amplitudes, potencias, intensidades o fases) frente a la frecuencia. Requiere descomponer una imagen en una suma de muchos componentes de frecuencia individuales.",
+      "Image annotation": "La anotación de imágenes es el proceso de definir etiquetas o metadatos para una imagen, p. Ej. definir regiones, marcar puntos, crear descripciones textuales, adjuntar etiquetas al contenido de la imagen.",
+      "Image classification": "La clasificación de imágenes es un proceso para asignar imágenes a diferentes clases según el contenido de la imagen.",
+      "Image correction": "La corrección de imagen elimina las aberraciones que se originan en el instrumento de formación de imágenes, la iluminación o la muestra, p. Ej. corrección de aberración cromática, corrección de deriva, desmezcla espectral.",
+      "Image enhancement": "La mejora de la imagen se refiere a una operación que aumenta la calidad de la imagen o mejora las características de interés en la imagen, p. Ej. mejora del contraste, eliminación de ruido.",
+      "Image feature detection": "La detección de características incluye métodos para calcular abstracciones de información de imagen y tomar decisiones locales en cada punto de la imagen si existe una característica de imagen de un tipo determinado.",
+      "Image fusion": "La fusión de imágenes es el proceso de recopilar toda la información importante de varias imágenes y su inclusión en menos imágenes, generalmente una sola.",
+      "Image reconstruction": "La reconstrucción de imágenes se refiere a una amplia variedad de operaciones que reconstruyen la imagen, p. Ej. deconvolución, costura, reconstrucción de iluminación estructurada.",
+      "Image registration": "El registro de imágenes es el proceso de alinear dos o más imágenes de la misma escena (o similar), cuando las imágenes se capturan en condiciones variables que pueden cambiar la perspectiva de adquisición o el contenido de la escena.",
+      "Image Segmentation": "La segmentación de imágenes es el proceso de dividir una imagen en varios objetos y se ubica en el límite entre el procesamiento de imágenes y el análisis de imágenes.",
+      "Magnetic resonance imaging": "La resonancia magnética utiliza campos magnéticos y ondas de radio para generar imágenes de órganos y tejidos.",
+      "Medical imaging": "Las imágenes médicas son la técnica y el proceso de obtener imágenes del interior de un cuerpo para el análisis clínico y la intervención médica, así como la representación visual de la función de algunos órganos o tejidos.",
+      "Morphological operations": "Las operaciones morfológicas es una técnica para el análisis y procesamiento de estructuras geométricas, basada en la teoría de conjuntos, la teoría de celosía, la topología y las funciones aleatorias. Se aplica con mayor frecuencia a imágenes, pero también se puede emplear en gráficos, mallas de superficie, sólidos y muchas otras estructuras espaciales. Los operadores morfológicos básicos son erosión, dilatación, apertura y cierre.",
+      "Multi-photon microscopy": "Técnica de microscopía de fluorescencia en la que la molécula fluorescente es excitada por múltiples fotones de una longitud de onda más larga que la emisión de la molécula fluorescente.",
+      "Multimodal imaging": "Utilizando diferentes modalidades de imagen en combinación, p. Ej. microscopía correlativa de luz y electrónica (CLEM)",
+      "Object classification": "La clasificación de objetos utiliza un clasificador para reconocer categorías de objetos en función de sus características.",
+      "Object feature extraction": "Las características del objeto incluyen, pero no se limitan a: formas, texturas, dinámicas (para imágenes de series de tiempo)",
+      "Object tracking": "El seguimiento de objetos toma los objetos detectados de una imagen de serie temporal y rastrea cada uno de los objetos a medida que se mueven a lo largo del tiempo.",
+      "Object-based colocalisation": "La colocalización basada en objetos se refiere a la identificación de la superposición espacial entre dos (o más) objetos diferentes.",
+      "Optical flow analysis": "El análisis de flujo óptico es el proceso de estimar el movimiento en una imagen de series de tiempo, típicamente representado como un campo vectorial como la distribución de las velocidades aparentes del objeto en una imagen.",
+      "Phase-Contrast microscopy": "La microscopía de contraste de fase se basa en la conversión del cambio de fase de la luz inducido por la muestra en contraste en una imagen.",
+      "Pixel classification": "La clasificación de píxeles asigna etiquetas a los píxeles según las características de los píxeles.",
+      "Pixel-based colocalisation": "En la colocalización basada en píxeles, la intensidad de un píxel en un canal se evalúa frente al píxel correspondiente en otro canal, produciendo generalmente un diagrama de dispersión a partir del cual se determina un coeficiente de correlación.",
+      "Synthetic image generation": "Genera imágenes sintéticas a través de una simulación.",
+      "Ultrasound imaging": "Las imágenes por ultrasonido (ecografía) utilizan ondas sonoras de alta frecuencia para ver el interior del cuerpo.",
+      "Visualization": "La visualización cubre los complementos que mejoran o crean utilidades de visualización para el trazado de imágenes y datos."
+    }
+  }
+}

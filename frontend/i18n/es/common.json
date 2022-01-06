@@ -1,0 +1,63 @@
+{
+  "about": "Sobre",
+  "close": "Cerca",
+  "contact": "Contacto",
+  "cziOss": "Programa EOSS de la Iniciativa Chan Zuckerberg",
+  "download": "Download",
+  "error": "Error",
+  "faq": "FAQ",
+  "githubRepo": "Repositorio de GitHub",
+  "home": "Casa",
+  "infoNotSubmitted": "Información no enviada",
+  "install": "Instalar en pc",
+  "learnMore": "Aprende más",
+  "mailchimpPrivacy": "Política de privacidad de Mailchimp",
+  "napariGovernanceModel": "modelo de gobernanza napari",
+  "napariImageScForum": "foro napari image.sc",
+  "napariMainWebsite": "sitio web principal de napari",
+  "napariPlausible": "panel de análisis de napari.dev",
+  "plausiblePrivacy": "Política de privacidad de Plausible.io",
+  "privacy": "Intimidad",
+
+  "ariaLabels": {
+    "clearSearchBar": "Borrar el texto de la barra de búsqueda",
+    "searchBar": "Barra de búsqueda para buscar complementos de napari.",
+    "submitSearchQuery": "Enviar consulta de búsqueda"
+  },
+
+  "napariHub": {
+    "base": "napari hub",
+    "strong": "napari <strong>hub</strong>"
+  },
+
+  "alt": {
+    "sideMenu": "Icono para abrir el menú lateral."
+  },
+
+  "errors": {
+    "notFound": "No se encontró la página <code>{{pathname}}</code>.",
+    "serverError": "Error de servidor interno"
+  },
+
+  "htmlMeta": {
+    "about": {
+      "description": "El centro napari es un servicio de la Iniciativa Chan Zuckerberg en colaboración con napari.  NEl centro napari busca resolver muchos de los desafíos y necesidades en la búsqueda de soluciones de análisis para problemas de bioimagen."
+    },
+
+    "contact": {
+      "description": "Si desea ponerse en contacto con el equipo de napari hub, puede hacerlo de varias formas. Para obtener ayuda o ideas para el centro napari, consulte el panel de discusión."
+    },
+
+    "faq": {
+      "description": "Esperamos que estas preguntas le ayuden en su viaje con el plugin de napari. Nos esforzamos por actualizar esto con regularidad. Si necesita información o asistencia adicional, consulte la página de Contacto o puede comunicarse con un humano en team@napari-hub.org."
+    },
+
+    "home": {
+      "description": "Un sitio para complementos de napari. Descubra complementos que resuelven sus desafíos de análisis de imágenes, aprenda a instalar en napari y comparta herramientas de análisis de imágenes con la creciente comunidad de napari."
+    },
+
+    "privacy": {
+      "description": "Información sobre el aviso de privacidad del sitio web de napari hub."
+    }
+  }
+}

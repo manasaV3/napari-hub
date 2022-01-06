@@ -1,0 +1,238 @@
+<LayoutMDX toc title="Preguntas frecuentes">
+
+# PREGUNTAS MÁS FRECUENTES
+
+¡Esperamos que estas preguntas le ayuden en su viaje con el plugin napari! Nosotros
+esfuércese por actualizar esto con regularidad. Si necesita información adicional o
+asistencia, consulte la página [Contacto]({CONTACT}) o puede comunicarse con un humano
+en <mailto: team@napari-hub.org>.
+
+## Usando napari
+
+<Accordion title = "¿Cómo empiezo a usar napari?" variant = "faq">
+
+Si eres nuevo en napari, ¡bienvenido y no te preocupes! www.napari.org te ayudará
+instalar y ver en poco tiempo.
+
+</Accordion>
+
+<Accordion title = "¿Cómo obtengo ayuda con napari?" variant = "faq">
+
+napari es un socio de la comunidad en el [foro image.sc]({IMAGESC}) y todas las solicitudes de ayuda y soporte
+debe publicarse en el foro con la etiqueta napari. Esperamos poder interactuar con usted allí.
+
+Los informes de errores deben realizarse en napari
+[problemas de github]({NAPARI_REPO}/issues/new?template=bug_report.md) usando la plantilla de informe de errores.
+Si cree que algo no está funcionando, no dude en comunicarse con nosotros; probablemente seamos nosotros y no usted.
+
+</Accordion>
+
+<Accordion title = "¿Cómo obtengo ayuda con un complemento napari?" variant = "faq">
+
+Se anima a los autores de complementos a agregar enlaces a su lista, mostrando a los usuarios de su complemento dónde encontrar ayuda.
+
+Si el autor del complemento no ha indicado dónde obtener ayuda, la comunidad [image.sc](https://forum.image.sc/tag/napari) es un gran lugar para hacer preguntas sobre napari y los complementos napari.
+
+</Accordion>
+
+## Usando el concentrador napari
+
+<Accordion
+  title="¿Cómo realizo consultas de búsqueda más avanzadas?"
+  variant="faq"
+>
+
+Usamos [fuse.js](https://fusejs.io/) para el motor de búsqueda de complementos.
+Debería estar bien con la mayoría de las consultas, pero si desea realizar consultas de búsqueda más avanzadas,
+puede usar [operadores de búsqueda extendidos](https://fusejs.io/examples.html#extended-search)
+para ajustar los resultados de la búsqueda.
+
+#### Ejemplos
+
+De forma predeterminada, los espacios en blanco se considerarán como un operador AND.
+Para combinar resultados usando OR, use el operador de tubería:
+
+```
+console | animation
+```
+
+Para buscar resultados que incluyan una palabra (sin coincidencia aproximada), use el operador de apóstrofo:
+
+```
+'video
+```
+
+Para buscar resultados que comiencen con una cadena en particular, use el operador de prefijo.
+
+```
+^napari
+```
+
+De manera similar, para encontrar resultados que terminen con una cadena en particular, use el operador de sufijo:
+
+```
+napari$
+```
+
+</Accordion>
+
+<Accordion
+  title="¿Quién está construyendo esto?"
+  variant="faq"
+>
+
+El centro napari es un servicio de la Iniciativa Chan Zuckerberg en colaboración con napari,
+construido por el equipo de imágenes de CZI. Puede obtener más información sobre quién dirige
+este barco visitando la [página acerca de]({ABOUT}).
+
+</Accordion>
+
+<Accordion
+  title="Tengo una idea genial o una pregunta que no ha sido respondida aquí, ¿a dónde voy?"
+  variant="faq"
+>
+
+¡Oh, no, no respondimos a tus preguntas! Nuestras disculpas.
+Le recomendamos que haga cualquier pregunta de la comunidad hub en [discusiones de github]({HUB_REPO}/discussions) -
+Valoramos el compromiso con el código abierto y nunca se sabe quién podría tener la respuesta correcta.
+Para obtener una lista completa de todos los involucrados, consulte la [página de contactos]({CONTACT}).
+
+</Accordion>
+
+## Creación y uso compartido de complementos
+
+<Accordion title="¿Cómo creo un complemento napari?" variant="faq">
+
+Puede obtener más información sobre cómo crear un complemento para napari leyendo
+[este tutorial](https://napari.org/plugins/stable/for_plugin_developers.html#plugins-for-plugin-developers),
+que lo guiará a través de las especificaciones del gancho, implementación,
+y cómo compartir su complemento con el mundo.
+
+</Accordion>
+
+<Accordion
+  title="¿Cómo agrego mi complemento al concentrador de napari?"
+  variant="faq"
+>
+
+Para agregar su complemento al concentrador de napari, simplemente empújelo a PyPI.
+Si usó el cortador de cookies del complemento napari como plantilla para su complemento, ya viene
+[configurado para implementar en PyPI cuando etiqueta una versión versionada](https://github.com/napari/cookiecutter-napari-plugin#set-up-automatic-deployments).
+
+</Accordion>
+
+<Accordion
+  title="¿Con qué frecuencia busca complementos nuevos o actualizados en PyPI?"
+  variant="faq"
+>
+
+Sondeamos PyPI para obtener actualizaciones cada 5 minutos.
+
+</Accordion>
+
+<Accordion
+  title="¿Cómo personalizo la lista de mi complemento?"
+  variant="faq"
+>
+
+Obtenemos metadatos para la lista de complementos de PyPI y Github.
+Además de un montón de cosas estándar de PyPI, admitimos campos personalizados adicionales,
+como una descripción fácil de usar para complementar su README de Github.
+Consulte [Personalización de la lista de complementos](https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-listing.md)
+para ver qué metadatos presentaremos y de dónde los obtenemos.
+
+</Accordion>
+
+<Accordion
+  title="¿Cómo agrego un escudo / insignia para el concentrador de napari a mi repositorio?"
+  variant="faq"
+>
+
+El concentrador de napari admite los protectores [Shields.io](https://shields.io/) para que su repositorio se vincule a los
+página de listado. Si desea agregar un escudo a su README u otros archivos de rebajas,
+puede copiar y pegar el fragmento:
+
+```
+[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/<your-plugin-name-here>)](https://napari-hub.org/plugins/<your-plugin-name-here>)
+```
+
+Si solo desea la insignia SVG, puede acceder a ella en la URL a continuación.
+
+```
+https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/<your-plugin-name-here>
+```
+
+</Accordion>
+
+<Accordion
+  title="¿Puedo obtener una vista previa de mi anuncio antes de cargar mi complemento?"
+  variant="faq"
+>
+
+¡Sí tu puedes! El [napari-hub-cli](https://github.com/chanzuckerberg/napari-hub-cli)
+es una herramienta de línea de comandos que le permite obtener una vista previa de sus metadatos y asegurarse de haber
+incluido todo lo que busca el hub. Simplemente instálelo en su desarrollo local
+machine y apúntelo a su repositorio local.
+
+</Accordion>
+
+<Accordion
+  title="¿Cómo elimino mi complemento del concentrador napari?"
+  variant="faq"
+>
+
+Si elimina su complemento de PyPI o tira de una versión, se eliminará del concentrador de napari en aproximadamente 5 minutos.
+
+Si desea que su complemento esté disponible en PyPI, pero no sea visible en el concentrador de napari, avísenos por
+[envío de un problema](https://github.com/chanzuckerberg/napari-hub/issues/new)
+o enviando un correo electrónico a <team@napari-hub.org> y lo eliminaremos manualmente de nuestras listas.
+
+</Accordion>
+
+<Accordion
+  title={`"Mi complemento está en PyPI, pero ¿por qué no aparece en el concentrador?"`}
+  variant="faq"
+>
+
+Verificamos PyPI cada 5 minutos, por lo que si simplemente lo presionó a PyPI, es posible que solo tenga que ir a buscar una taza de café.
+
+Busque PyPI directamente para su complemento entre los etiquetados con ["Framework :: napari"](https://pypi.org/search/?c=Framework+%3A%3A+napari)
+
+Si su complemento está en PyPI, pero no aparece en esa búsqueda, entonces no tiene el clasificador de tesoros "Framework :: napari" definido correctamente.
+
+Si su complemento aparece en ["Framework :: napari"](https://pypi.org/search/?c=Framework+%3A%3A+napari)
+en PyPI, pero no en el hub, ve y toma una taza de café.
+Si aún no aparece después de 5 minutos, [abre un problema](https://github.com/chanzuckerberg/napari-hub/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
+y nuestro equipo lo investigará lo antes posible.
+
+</Accordion>
+
+<Accordion
+  title={`Actualicé mi directorio ".napari" en Github. ¿Por qué no aparecen mis cambios?`}
+  variant="faq"
+>
+
+Solo extraemos información del complemento de Github cuando detectamos un nuevo complemento o una nueva versión en PyPI.
+Sin embargo, si desea actualizar su lista de complementos con los últimos metadatos de su repositorio de Github,
+solo háganoslo saber [_enviando un problema_](https://github.com/chanzuckerberg/napari-hub/issues/new)
+y podemos activar manualmente una actualización de los metadatos de su complemento desde Github.
+
+</Accordion>
+
+<Accordion
+  title={`¿Por qué mi complemento no es de "código abierto"?`}
+  variant="faq"
+>
+
+Para ser considerado un complemento de "código abierto", el concentrador debe poder detectar que su
+El complemento se distribuye con una [licencia de código abierto aprobada por OSI](https://opensource.org/licenses).
+Eso sucede de una de estas dos formas:
+
+- Si se ha vinculado a un repositorio de Github, obtendremos [la licencia de la API de Github](https://docs.github.com/en/rest/reference/licenses#get-the-license-for-a-repository), que inspecciona su archivo de LICENCIA e infiere la licencia correcta.
+- Si Github no identifica su licencia, recurriremos a lo que haya especificado en su configuración de Python. _Nota: DEBE ser un [identificador de licencia SPDX válido](https://spdx.org/licenses/) para ser detectado como una licencia de "código abierto", como "BSD-3-Cláusula" ... " BSD-3 ”no se reconocerá como“ código abierto ”._
+
+Para obtener más información sobre cómo obtenemos estos metadatos, consulte [la sección "Licencia" de "Personalización de la lista de complementos"](https://github.com/chanzuckerberg/napari-hub/blob/main/docs/customizing-plugin-Listing.md#license)
+
+</Accordion>
+
+</LayoutMDX>

@@ -18,6 +18,6 @@ module.exports = {
     // Supported locales. When adding a new locale, add the language code here
     // and copy the `src/locales/en` directory to a new directory matching the
     // new locale's language code.
-    locales: ['en'],
+    locales: ['en', 'es'],
   },
 };
