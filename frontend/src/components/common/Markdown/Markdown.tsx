@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import schema from 'hast-util-sanitize/lib/github.json';
+import { useMemo } from 'react';
 import ReactMarkdown, { PluggableList, TransformOptions } from 'react-markdown';
 import raw from 'rehype-raw';
 import sanitize from 'rehype-sanitize';
@@ -10,6 +11,7 @@ import removeComments from 'remark-remove-comments';
 
 import styles from './Markdown.module.scss';
 import { MarkdownCode } from './MarkdownCode';
+import { MarkdownImage, Props as MarkdownImageProps } from './MarkdownImage';
 import { MarkdownParagraph } from './MarkdownParagraph';
 import { MarkdownTOC } from './MarkdownTOC';
 
@@ -25,6 +27,12 @@ interface Props {
 
   // Render markdown with placeholder styles.
   placeholder?: boolean;
+
+  /**
+   * Function to use for resolving image URLs if special logic is needed to
+   * locate the images. This is especially necessary if relative image links.
+   */
+  imageResolver?(src: string): string;
 }
 
 const REMARK_PLUGINS: PluggableList = [
@@ -66,15 +74,28 @@ export function Markdown({
   children,
   disableHeader,
   placeholder,
+  imageResolver,
 }: Props) {
-  const components: TransformOptions['components'] = {
-    code: MarkdownCode,
-    p: MarkdownParagraph,
-  };
+  const components = useMemo(() => {
+    const result: TransformOptions['components'] = {
+      code: MarkdownCode,
+      p: MarkdownParagraph,
+      img: (props) => (
+        <MarkdownImage
+          // The `props` type is incorrect for image nodes for some reason, so
+          // it needs to be casted to unknown first.
+          {...(props as unknown as MarkdownImageProps)}
+          imageResolver={imageResolver}
+        />
+      ),
+    };
 
-  if (disableHeader) {
-    components.h1 = () => null;
-  }
+    if (disableHeader) {
+      result.h1 = () => null;
+    }
+
+    return result;
+  }, [disableHeader, imageResolver]);
 
   return (
     <ReactMarkdown
