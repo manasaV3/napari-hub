@@ -8,7 +8,7 @@ import { PluginRepoData, PluginRepoFetchError } from '@/types';
  * Regex used for capturing the repo name in a repo URL.
  * Inspiration: https://regexr.com/4uvj8
  */
-const REPO_REGEX = /(?:git@|https:\/\/)(github).com[/:](.*)(?:.git)?/;
+export const REPO_REGEX = /(?:git@|https:\/\/)(github).com[/:](.*)(?:.git)?/;
 
 export interface FetchRepoDataResult {
   repo: PluginRepoData;

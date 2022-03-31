@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { isObject, throttle } from 'lodash';
 import { useTranslation } from 'next-i18next';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import { AppBarPreview } from '@/components/AppBar';
 import { CategoryChipContainer } from '@/components/CategoryChip';
@@ -17,6 +17,7 @@ import { usePluginState } from '@/context/plugin';
 import { usePlausible } from '@/hooks';
 import { usePreviewClickAway } from '@/hooks/usePreviewClickAway';
 import { HubDimension } from '@/types';
+import { isExternalUrl, REPO_REGEX } from '@/utils';
 
 import { CallToActionButton } from './CallToActionButton';
 import { CitationInfo } from './CitationInfo';
@@ -45,6 +46,14 @@ function PluginCenterColumn() {
   const isEmptyDescription =
     !plugin?.description ||
     plugin.description.includes(t('preview:emptyDescription'));
+
+  // Get base URL for raw images for the current repo.
+  const repoRawUrl = useMemo(() => {
+    const match = REPO_REGEX.exec(plugin?.code_repository ?? '');
+    const repo = match?.[2];
+
+    return repo ? `https://raw.githubusercontent.com/${repo}/main` : '';
+  }, [plugin?.code_repository]);
 
   return (
     <article
@@ -183,7 +192,31 @@ function PluginCenterColumn() {
             className="flex items-center justify-between mb-10"
             highlight={isEmptyDescription}
           >
-            <Markdown disableHeader placeholder={isEmptyDescription}>
+            <Markdown
+              disableHeader
+              placeholder={isEmptyDescription}
+              imageResolver={(src) => {
+                let result = src;
+
+                if (!isExternalUrl(src) && repoRawUrl) {
+                  // If the image URL starts with `../`, then the description is
+                  // likely stored in `.napari/DESCRIPTION.md`. That means the
+                  // image will resolve correctly in the top-level directory of
+                  // the repo if we remove the `../` prefix.
+                  if (result.startsWith('../')) {
+                    result = src.replace(/^\.\.\//, '');
+                  }
+
+                  if (result.startsWith('./')) {
+                    result = src.replace(/^\.\//, '');
+                  }
+
+                  result = `${repoRawUrl}/${result}`;
+                }
+
+                return result;
+              }}
+            >
               {plugin?.description ?? t('preview:emptyDescription')}
             </Markdown>
           </MetadataHighlighter>
