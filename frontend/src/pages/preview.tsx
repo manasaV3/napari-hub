@@ -6,8 +6,10 @@ import { SSRConfig, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useEffect } from 'react';
 import { DeepPartial } from 'utility-types';
+import { useSnapshot } from 'valtio';
 
 import { PluginDetails } from '@/components/PluginDetails';
+import { PreviewEditor } from '@/components/PreviewEditor';
 import { DEFAULT_PLUGIN_DATA, DEFAULT_REPO_DATA } from '@/constants/plugin';
 import { MetadataId, PluginStateProvider } from '@/context/plugin';
 import { PROD } from '@/env';
@@ -15,6 +17,7 @@ import { previewStore } from '@/store/preview';
 import { PluginData } from '@/types';
 import { I18nNamespace } from '@/types/i18n';
 import { fetchRepoData, FetchRepoDataResult } from '@/utils';
+import { useIsFeatureFlagEnabled } from '@/utils/featureFlags';
 
 interface BaseProps {
   plugin: DeepPartial<PluginData>;
@@ -63,6 +66,8 @@ export async function getStaticProps({
 
 export default function PreviewPage({ plugin, repo, repoFetchError }: Props) {
   const [t] = useTranslation(['pageTitles', 'pluginData']);
+  const snap = useSnapshot(previewStore);
+  const isPreviewEditorEnabled = useIsFeatureFlagEnabled('previewEditor');
 
   // Set active metadata ID on initial load if the hash is already set.
   useEffect(() => {
@@ -77,6 +82,10 @@ export default function PreviewPage({ plugin, repo, repoFetchError }: Props) {
     return <DefaultErrorPage statusCode={404} />;
   }
 
+  if (isPreviewEditorEnabled && previewStore.plugin === null) {
+    previewStore.plugin = plugin as PluginData;
+  }
+
   return (
     <>
       <Head>
@@ -87,11 +96,13 @@ export default function PreviewPage({ plugin, repo, repoFetchError }: Props) {
       </Head>
 
       <PluginStateProvider
-        plugin={plugin}
+        plugin={isPreviewEditorEnabled && snap.plugin ? snap.plugin : plugin}
         repo={repo}
         repoFetchError={repoFetchError}
       >
         <PluginDetails />
+
+        {isPreviewEditorEnabled && <PreviewEditor />}
       </PluginStateProvider>
     </>
   );
