@@ -41,7 +41,7 @@
     "// Runs preview page in dev mode. Accessible from http://localhost:8080/preview": "",
     "preview:dev": "PREVIEW=src/fixtures/preview.json PREVIEW_PULL_REQUEST=https://github.com/chanzuckerberg/napari-demo/pull/5 yarn dev",
     "// Builds preview page with dev data.": "",
-    "preview:dev:build": "PREVIEW=src/fixtures/plugin.json PREVIEW_PULL_REQUEST=https://github.com/chanzuckerberg/napari-demo/pull/5 yarn preview:build",
+    "preview:dev:build": "PREVIEW=src/fixtures/preview.json PREVIEW_PULL_REQUEST=https://github.com/chanzuckerberg/napari-demo/pull/5 yarn preview:build",
     "// Runs frontend in production. Requires running `yarn build` first.": "",
     "start": "next start -p 8080",
     "// Runs unit / integration tests": "",
