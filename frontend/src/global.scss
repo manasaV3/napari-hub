@@ -31,6 +31,10 @@ html {
   }
 }
 
+html.no-select * {
+  user-select: none;
+}
+
 body {
   /*
     Overflow body along x-axis when contents are too long for the page. This
