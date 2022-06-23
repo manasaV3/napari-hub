@@ -1,5 +1,6 @@
 import contextlib
 import json
+import os
 import urllib.parse
 import boto3
 import subprocess
@@ -7,6 +8,7 @@ import sys
 from npe2 import PluginManager
 
 s3 = boto3.client('s3')
+MAX_FAILURE_TRIES = 2
 
 
 def discover_manifest(plugin_name):
@@ -36,16 +38,15 @@ def generate_manifest(event, context):
     is in the json file and it is less than max_failure_tries, then the method attempts to pip install the plugin
     with its version, calls discover_manifest to return manifest and is_npe2, then write to designated location on s3.
     """
-    max_failure_tries = 2
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
     response = s3.get_object(Bucket=bucket, Key=key)
     myBody = response["Body"]
     body_dict = json.loads(myBody.read().decode("utf-8"))
-    print(f'body_dict on read:\n{body_dict}')
+    print(f'{str(key).split("/")[-2]} body_dict on read:\n{body_dict}')
     s3_client = boto3.client('s3')
     s3_body = ''
-    if 'process_count' not in body_dict or body_dict['process_count'] >= max_failure_tries:
+    if 'process_count' not in body_dict or body_dict['process_count'] >= MAX_FAILURE_TRIES:
         return
     try:
         splitPath = str(key).split("/")
@@ -66,7 +67,7 @@ def generate_manifest(event, context):
         str_e = str(e).replace('"', "")
         str_e = str_e.replace("'", "")
         body_dict['error_message'] = str_e
-        print(f'body_dict before dump to body:\n{body_dict}')
+        print(f'{plugin} body_dict before dump to body:\n{body_dict}')
         s3_body = json.dumps(body_dict)
         raise e
     finally:
@@ -87,9 +88,9 @@ def failure_handler(event, context):
     response = s3.get_object(Bucket=bucket, Key=manifest_path)
     myBody = response["Body"]
     body_dict = json.loads(myBody.read().decode("utf-8"))
-    print(f"Failure body_dict on read:\n{body_dict}")
+    print(f"{os.path.basename(manifest_path)} failure body_dict on read:\n{body_dict}")
     s3_client = boto3.client('s3')
-    if 'process_count' in body_dict:
+    if 'process_count' in body_dict and body_dict['process_count'] <= MAX_FAILURE_TRIES:
         response = s3_client.delete_object(
             Bucket=bucket,
             Key=manifest_path
