@@ -89,7 +89,7 @@ def failure_handler(event, context):
     response = s3.get_object(Bucket=bucket, Key=manifest_path)
     myBody = response["Body"]
     body_dict = json.loads(myBody.read().decode("utf-8"))
-    print(f"Event timestamp: {event['requestPayload'][0]['eventTime']}")
+    print(f"Event timestamp: {event['requestPayload']['Records'][0]['eventTime']}")
     print(f"{os.path.basename(manifest_path)} failure body_dict on read:{body_dict}")
     s3_client = boto3.client('s3')
     if 'process_count' in body_dict and body_dict['process_count'] <= MAX_FAILURE_TRIES:
