@@ -17,7 +17,6 @@ module lambda {
 
   memory_size                       = var.memory_size
   ephemeral_storage_size            = var.ephemeral_storage_size
-  maximum_retry_attempts            = var.maximum_retry_attempts
   kms_key_arn                       = var.kms_key_arn
   role_name                         = var.function_name
   role_path                         = var.lambda_role_path
@@ -49,6 +48,7 @@ resource "aws_lambda_function_event_invoke_config" "this" {
   count = var.create_async_event_config ? 1 : 0
 
   function_name = var.function_name
+  maximum_retry_attempts = var.maximum_retry_attempts
 
   destination_config {
     on_failure {

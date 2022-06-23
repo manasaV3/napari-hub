@@ -43,7 +43,8 @@ def generate_manifest(event, context):
     response = s3.get_object(Bucket=bucket, Key=key)
     myBody = response["Body"]
     body_dict = json.loads(myBody.read().decode("utf-8"))
-    print(f'{str(key).split("/")[-2]} body_dict on read:\n{body_dict}')
+    print(f"Event timestamp: {event['Records'][0]['eventTime']}")
+    print(f'{str(key).split("/")[-2]} body_dict on read:{body_dict}')
     s3_client = boto3.client('s3')
     s3_body = ''
     if 'process_count' not in body_dict or body_dict['process_count'] >= MAX_FAILURE_TRIES:
@@ -67,7 +68,7 @@ def generate_manifest(event, context):
         str_e = str(e).replace('"', "")
         str_e = str_e.replace("'", "")
         body_dict['error_message'] = str_e
-        print(f'{plugin} body_dict before dump to body:\n{body_dict}')
+        print(f'{plugin} body_dict before dump to body:{body_dict}')
         s3_body = json.dumps(body_dict)
         raise e
     finally:
@@ -88,7 +89,8 @@ def failure_handler(event, context):
     response = s3.get_object(Bucket=bucket, Key=manifest_path)
     myBody = response["Body"]
     body_dict = json.loads(myBody.read().decode("utf-8"))
-    print(f"{os.path.basename(manifest_path)} failure body_dict on read:\n{body_dict}")
+    print(f"Event timestamp: {event['Records'][0]['eventTime']}")
+    print(f"{os.path.basename(manifest_path)} failure body_dict on read:{body_dict}")
     s3_client = boto3.client('s3')
     if 'process_count' in body_dict and body_dict['process_count'] <= MAX_FAILURE_TRIES:
         response = s3_client.delete_object(
