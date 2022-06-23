@@ -12,12 +12,15 @@ from utils.utils import render_description, send_alert, get_attribute, get_categ
 from utils.datadog import report_metrics
 from api.zulip import notify_new_packages
 
+# index_subset = {'name', 'summary', 'description_text', 'description_content_type',
+#                 'authors', 'license', 'python_version', 'operating_system',
+#                 'release_date', 'version', 'first_released',
+#                 'development_status', 'category', 'display_name', 'plugin_types', 'reader_file_extensions',
+#                 'writer_file_extensions', 'writer_save_layers', 'npe2', 'error_message', 'conda'}
 index_subset = {'name', 'summary', 'description_text', 'description_content_type',
                 'authors', 'license', 'python_version', 'operating_system',
                 'release_date', 'version', 'first_released',
-                'development_status', 'category', 'display_name', 'plugin_types', 'reader_file_extensions',
-                'writer_file_extensions', 'writer_save_layers', 'npe2', 'error_message', 'conda'}
-
+                'development_status', 'category', 'conda'}
 
 def get_public_plugins() -> Dict[str, str]:
     """
@@ -185,9 +188,9 @@ def update_cache():
     """
     plugins = query_pypi()
     plugins_metadata = get_plugin_metadata_async(plugins, build_plugin_metadata)
-    manifest_metadata = get_plugin_metadata_async(plugins, build_manifest_metadata)
-    for plugin in plugins:
-        plugins_metadata[plugin].update(manifest_metadata[plugin])
+    # manifest_metadata = get_plugin_metadata_async(plugins, build_manifest_metadata)
+    # for plugin in plugins:
+    #     plugins_metadata[plugin].update(manifest_metadata[plugin])
     excluded_plugins = get_updated_plugin_exclusion(plugins_metadata)
     visibility_plugins = {"public": {}, "hidden": {}}
     for plugin, version in plugins.items():
