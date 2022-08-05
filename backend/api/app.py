@@ -71,10 +71,9 @@ def versioned_plugin(plugin: str, version: str = None) -> Response:
 @app.route('/manifest/<plugin>/versions/<version>')
 def plugin_manifest(plugin: str, version: str = None) -> Response:
     response = lambda_client.invoke(
-        FunctionName='dev-try-python-invoke-plugins',
+        FunctionName='arn:aws:lambda:us-west-2:516466186502:function:dev-try-python-invoke-plugins',
         InvocationType='Event',
-        Payload='{"my-key": "my-value"}',
-        Qualifier='string'
+        Payload='{"my-event": "my-value"}',
     )
     return app.make_response(("Plugin does not exist", 404))
     max_failure_tries = 2
