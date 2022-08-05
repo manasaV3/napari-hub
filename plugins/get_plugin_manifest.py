@@ -36,6 +36,10 @@ def generate_manifest(event, context):
     is in the json file and it is less than max_failure_tries, then the method attempts to pip install the plugin
     with its version, calls discover_manifest to return manifest and is_npe2, then write to designated location on s3.
     """
+    print(event)
+    return {
+        'message': 'Success'
+    }
     max_failure_tries = 2
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')

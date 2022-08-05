@@ -7,7 +7,7 @@ from collections import defaultdict
 from utils.conda import get_conda_forge_package
 from utils.github import get_github_metadata, get_artifact
 from utils.pypi import query_pypi, get_plugin_pypi_metadata
-from api.s3 import get_cache, cache
+from api.s3 import get_cache, cache, lambda_client
 from utils.utils import render_description, send_alert, get_attribute, get_category_mapping, parse_manifest
 from utils.datadog import report_metrics
 from api.zulip import notify_new_packages
@@ -185,9 +185,15 @@ def update_cache():
     """
     plugins = query_pypi()
     plugins_metadata = get_plugin_metadata_async(plugins, build_plugin_metadata)
-    manifest_metadata = get_plugin_metadata_async(plugins, build_manifest_metadata)
-    for plugin in plugins:
-        plugins_metadata[plugin].update(manifest_metadata[plugin])
+    # manifest_metadata = get_plugin_metadata_async(plugins, build_manifest_metadata)
+    # for plugin in plugins:
+    #     plugins_metadata[plugin].update(manifest_metadata[plugin])
+    response = lambda_client.invoke(
+        FunctionName='dev-remove-failure-lambda-plugins',
+        InvocationType='Event',
+        Payload='{"my-key": "my-value"}',
+        Qualifier='string'
+    )
     excluded_plugins = get_updated_plugin_exclusion(plugins_metadata)
     visibility_plugins = {"public": {}, "hidden": {}}
     for plugin, version in plugins.items():

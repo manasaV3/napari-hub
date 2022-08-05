@@ -18,7 +18,7 @@ bucket_path = os.environ.get('BUCKET_PATH', '')
 endpoint_url = os.environ.get('BOTO_ENDPOINT_URL', None)
 
 s3_client = boto3.client("s3", endpoint_url=endpoint_url, config=Config(max_pool_connections=50))
-
+lambda_client = boto3.client("lambda", endpoint_url=endpoint_url)
 
 def get_cache(key: str) -> Union[Dict, List, None]:
     """
