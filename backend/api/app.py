@@ -9,6 +9,7 @@ import yaml
 from api.model import get_public_plugins, get_index, get_plugin, get_excluded_plugins, update_cache, \
     move_artifact_to_s3, get_category_mapping, get_categories_mapping, get_manifest
 from api.shield import get_shield
+from api.s3 import lambda_client
 from utils.utils import send_alert, reformat_ssh_key_to_pem_bytes
 
 GITHUB_APP_ID = os.getenv('GITHUBAPP_ID')
@@ -69,6 +70,13 @@ def versioned_plugin(plugin: str, version: str = None) -> Response:
 @app.route('/manifest/<plugin>', defaults={'version': None})
 @app.route('/manifest/<plugin>/versions/<version>')
 def plugin_manifest(plugin: str, version: str = None) -> Response:
+    response = lambda_client.invoke(
+        FunctionName='dev-try-python-invoke-plugins',
+        InvocationType='Event',
+        Payload='{"my-key": "my-value"}',
+        Qualifier='string'
+    )
+    return app.make_response(("Plugin does not exist", 404))
     max_failure_tries = 2
     manifest = get_manifest(plugin, version)
 
