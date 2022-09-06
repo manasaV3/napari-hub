@@ -74,6 +74,7 @@ export async function getServerSideProps({
     'pageTitles',
     'pluginData',
     'pluginPage',
+    'activity',
 
     // Home page namespace required for page transitions to search page from the
     // plugin page.
