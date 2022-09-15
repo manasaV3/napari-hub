@@ -116,7 +116,7 @@ export function SignupForm({ onSubmit, variant = 'default' }: Props) {
             variant="contained"
             disableElevation
             className={clsx(
-              'bg-hub-primary-400',
+              'bg-hub-primary-400 hover:bg-hub-primary-500 active:bg-hub-primary-600',
               // font & colors
               'text-sm font-semibold text-black',
               // sizing
