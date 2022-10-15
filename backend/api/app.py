@@ -5,7 +5,7 @@ from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from flask import Flask, Response, jsonify, render_template
 from flask_githubapp.core import GitHubApp
 
-from api.collections import get_collections
+from api.collections import get_collections, get_collection
 from api.model import get_public_plugins, get_index, get_plugin, get_excluded_plugins, update_cache, \
     move_artifact_to_s3, get_category_mapping, get_categories_mapping, get_manifest, get_installs, get_installs_stats
 from api.shield import get_shield
@@ -108,6 +108,7 @@ def get_categories(version: str) -> Response:
 def get_category(category: str, version: str) -> Response:
     return jsonify(get_category_mapping(category, get_categories_mapping(version)))
 
+
 @app.route('/activity/<plugin>')
 def get_plugin_installs(plugin: str) -> Response:
     return jsonify(get_installs(plugin))
@@ -117,9 +118,15 @@ def get_plugin_installs(plugin: str) -> Response:
 def get_plugin_installs_stats(plugin: str) -> Response:
     return jsonify(get_installs_stats(plugin))
 
+
 @app.route('/collections')
 def collections() -> Response:
     return get_collections()
+
+
+@app.route('/collections/<collection>')
+def collection(collection: str) -> Response:
+    return get_collection(collection)
 
 
 @app.errorhandler(404)
